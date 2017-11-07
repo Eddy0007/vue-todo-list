@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vue Todo List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="taskApp">
+            <h2>Todo List in Vue</h2>
+            <input class="input" type="text" placeholder="Type here your todos" v-on:keyup="addTask">
+            <ul>
+                <li v-for="(task, index) in tasks">
+                    <span class="taskCheckbox">
+                        <input v-on:click="check" v-model="task.checked" type="checkbox">
+                    </span>
+                    <span class="taskTitle" :class="{done: isChecked(task)}">{{ task.title }}</span>
+                    <span class="taskDelete" v-on:click="deleteTask(index)">Delete</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/jquery.sortable.js"></script> -->
+<!-- <script src="js/script.js"></script> -->
+
+
+</html>
